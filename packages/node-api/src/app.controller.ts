@@ -9,4 +9,14 @@ export class AppController {
   getHello(): object {
     return this.appService.getHello();
   }
+
+  @Get('health')
+  getHealth(): object {
+    return this.appService.getHealth();
+  }
+
+  @Get('ready')
+  getReady(): object {
+    return this.appService.getReady();
+  }
 }

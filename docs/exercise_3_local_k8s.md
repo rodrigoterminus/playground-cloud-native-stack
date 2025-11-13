@@ -1,13 +1,13 @@
 # Exercise 3: Local Kubernetes Deployment (kubectl Deep Dive)
 
-**Goal:** Get comfortable with the core `kubectl` commands using your local Kubernetes cluster (Docker Desktop or Minikube).
+**Goal:** Get comfortable with the core `kubectl` commands using your local Kubernetes cluster (Docker Desktop or Kind).
 
 **Why:** The assessment prerequisites *require* `kubectl`. This exercise builds "command-line comfort" and "muscle memory" for the most common operations. You will be interacting with `kubectl` via the terminal in the assessment.
 
 ## Steps
 
 1.  **Enable Kubernetes:**
-    * Ensure Kubernetes is enabled in your Docker Desktop settings (or start Minikube).
+    * Ensure Kubernetes is enabled in your Docker Desktop settings (or start Kind).
 
 2.  **Create Manifests:**
     * Create a `deployment.yaml` file for your `python-api:latest` image.
