@@ -1,0 +1,6 @@
+# Example variable values - copy this to terraform.tfvars and customize
+# NEVER commit terraform.tfvars to version control if it contains secrets
+
+aws_region  = "eu-central-1"
+bucket_name = "playground-cloud-native-stack"
+environment = "dev"

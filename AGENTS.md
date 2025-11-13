@@ -26,6 +26,7 @@
 - **Services:** When a `Service` is created, clearly explain the use cases for `ClusterIP`, `NodePort`, and `LoadBalancer`.
 
 ### AWS
+- **Region:** Always use `eu-central-1`
 - **IAM:** When any resource is created, always mention the IAM permissions required. Explain the "Principle of Least Privilege."
 - **Cost:** Add a brief, pragmatic warning if a resource is expensive (e.g., "Note: EKS clusters and LoadBalancers incur costs. Remember to `terraform destroy` when you are done.").
 

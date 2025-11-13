@@ -24,7 +24,6 @@ This repository is structured as a collection of self-contained projects, each d
 
 * `/python-api`: A simple, containerized **FastAPI** application.
 * `/node-api`: A simple, containerized **NestJS** application.
-* `/local-k8s`: Kubernetes YAML manifests (`Deployment`, `Service`) for running the applications locally (e.g., on Docker Desktop or Minikube).
 * `/terraform-aws-base`: Terraform code to provision foundational AWS resources (like an S3 bucket for state and an ECR repository for images).
 * `/terraform-aws-eks`: Terraform code to provision a managed **AWS EKS (Elastic Kubernetes Service)** cluster using the official Terraform EKS module.
 

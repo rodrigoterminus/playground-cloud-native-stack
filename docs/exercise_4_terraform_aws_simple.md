@@ -2,12 +2,12 @@
 
 **Goal:** Practice the core Terraform workflow by provisioning simple AWS resources.
 
-**Why:** This exercise isolates the `terraform` syntax and state management concepts. The job requires **Terraform for AWS provisioning**. Your resume lists AWS CDK, so this connects that IaC concept to the new tool.
+**Why:** This exercise isolates the `terraform` syntax and state management concepts. The job requires **Terraform for AWS provisioning**. 
 
 ## Steps
 
 1.  **Create Project:**
-    * Create a new directory (e.g., `terraform-s3`).
+    * Create a new directory (e.g., `terraform-aws-base`).
     * `cd` into it.
 
 2.  **Create Configuration:**
@@ -29,5 +29,5 @@
 ## Key Copilot Prompts
 
 * `"Create a Terraform 'main.tf' to provision an AWS S3 bucket. Include the 'aws' provider. Use a variable for the bucket name to ensure it's unique."`
-* `"Add a resource to my Terraform 'main.tf' to create an AWS ECR repository named 'my-cloud-api-repo'."`
+* `"Add a resource to my Terraform 'main.tf' to create an AWS ECR repository named 'cloud-native-stack-ecr'."`
 * `"Now, add a remote state backend to this Terraform configuration using the S3 bucket I just created."` (This is a good stretch goal).
