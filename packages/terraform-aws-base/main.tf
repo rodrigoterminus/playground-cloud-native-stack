@@ -61,9 +61,9 @@ resource "aws_s3_bucket_public_access_block" "terraform_state" {
   restrict_public_buckets = true
 }
 
-# ECR repository for container images
-resource "aws_ecr_repository" "api" {
-  name                 = var.ecr_repository_name
+# ECR repository for Python API
+resource "aws_ecr_repository" "python_api" {
+  name                 = var.python_api_ecr_name
   image_tag_mutability = "MUTABLE"
 
   # Security: Scan images for vulnerabilities on push
@@ -77,14 +77,57 @@ resource "aws_ecr_repository" "api" {
   }
 
   tags = {
-    Name        = var.ecr_repository_name
-    Description = "Container registry for cloud-native API applications"
+    Name        = var.python_api_ecr_name
+    Description = "Container registry for Python FastAPI application"
   }
 }
 
-# Lifecycle policy to manage image retention and reduce costs
-resource "aws_ecr_lifecycle_policy" "api" {
-  repository = aws_ecr_repository.api.name
+# Lifecycle policy for Python API images
+resource "aws_ecr_lifecycle_policy" "python_api" {
+  repository = aws_ecr_repository.python_api.name
+
+  policy = jsonencode({
+    rules = [
+      {
+        rulePriority = 1
+        description  = "Keep last 10 images"
+        selection = {
+          tagStatus   = "any"
+          countType   = "imageCountMoreThan"
+          countNumber = 10
+        }
+        action = {
+          type = "expire"
+        }
+      }
+    ]
+  })
+}
+
+# ECR repository for Node API
+resource "aws_ecr_repository" "node_api" {
+  name                 = var.node_api_ecr_name
+  image_tag_mutability = "MUTABLE"
+
+  # Security: Scan images for vulnerabilities on push
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+
+  # Security: Encrypt images at rest
+  encryption_configuration {
+    encryption_type = "AES256"
+  }
+
+  tags = {
+    Name        = var.node_api_ecr_name
+    Description = "Container registry for Node.js NestJS application"
+  }
+}
+
+# Lifecycle policy for Node API images
+resource "aws_ecr_lifecycle_policy" "node_api" {
+  repository = aws_ecr_repository.node_api.name
 
   policy = jsonencode({
     rules = [

@@ -6,7 +6,7 @@ metadata:
   labels:
     app: node-api
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: node-api
   ports:

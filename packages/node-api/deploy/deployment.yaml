@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
       - name: node-api
-        image: node-api:latest
-        imagePullPolicy: Never
+        image: 612681030788.dkr.ecr.eu-central-1.amazonaws.com/node-api:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
           name: http

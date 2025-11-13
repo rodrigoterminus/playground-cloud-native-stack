@@ -30,14 +30,25 @@ variable "environment" {
   }
 }
 
-variable "ecr_repository_name" {
-  description = "Name of the ECR repository for container images"
+variable "python_api_ecr_name" {
+  description = "Name of the ECR repository for Python API"
   type        = string
-  default     = "cloud-native-stack-ecr"
+  default     = "python-api"
 
   validation {
-    condition     = can(regex("^[a-z0-9][a-z0-9-_/]*[a-z0-9]$", var.ecr_repository_name))
-    error_message = "ECR repository name must start and end with a lowercase letter or number, and can only contain lowercase letters, numbers, hyphens, underscores, and forward slashes."
+    condition     = can(regex("^[a-z0-9][a-z0-9-_]*[a-z0-9]$", var.python_api_ecr_name))
+    error_message = "ECR repository name must start and end with a lowercase letter or number, and can only contain lowercase letters, numbers, hyphens, and underscores."
+  }
+}
+
+variable "node_api_ecr_name" {
+  description = "Name of the ECR repository for Node API"
+  type        = string
+  default     = "node-api"
+
+  validation {
+    condition     = can(regex("^[a-z0-9][a-z0-9-_]*[a-z0-9]$", var.node_api_ecr_name))
+    error_message = "ECR repository name must start and end with a lowercase letter or number, and can only contain lowercase letters, numbers, hyphens, and underscores."
   }
 }
 
